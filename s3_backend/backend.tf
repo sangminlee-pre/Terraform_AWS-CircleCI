@@ -4,12 +4,12 @@ variable "region" {
 }
 # 대문자, 언더라인 안됨
 variable "s3_state" {
-  default     = "circleci-terraform-state-1"
+  default     = "circleci-terraform-sangmin"
   description = "s3 state 이름 입력"
 }
 
 variable "s3_state_logs" {
-  default     = "circleci-terraform-logs-1"
+  default     = "circleci-terraform-sangmin-logs"
   description = "s3 logs 버킷 이름 입력"
 }
 
@@ -24,7 +24,7 @@ terraform {
 
 # 프로필 변경
 provider "aws" {
-  #profile = "default" # 사용자폴더/.aws/credentials 수정필
+  profile = "default" # 사용자폴더/.aws/credentials 수정필
   region = var.region
 }
 

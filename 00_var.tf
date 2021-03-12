@@ -1,9 +1,13 @@
 #사전에 AWS 콘솔에서 key_pair 생성해서 이름을 넣어야 됨
+/*
 variable "key_name" {
   default     = "KeyPair_Starlabs_Prod"
   description = "키페어 이름"
+}*/
+variable "key_name" {
+  default     = "KeyPair_Starlabs_ap-southeast-2_Prod"
+  description = "키페어 이름"
 }
-
 
 variable "customer" {
   default     = "Starlabs"
@@ -23,12 +27,18 @@ variable "private_port" {
 
 # 00_AWS.tf 백엔드 region 수정해야됨
 # s3_backend 폴더의 backend.tf region도 수정해야됨
+/*
+variable "region" {
+  default     = "ap-northeast-1"
+  description = "서버 생성 지역 입력"
+}*/
 variable "region" {
   default     = "ap-southeast-2"
   description = "서버 생성 지역 입력"
 }
+
 variable "country" {
-  default     = "JP"
+  default     = "AU"
   description = "나라 이름 두 글자 입력"
 }
 variable "nlb_name" {
@@ -85,15 +95,15 @@ variable "backup_cycle" {
 
 #리전마다 ami 값이 다르니 확인 필수.
 variable "amzn2" {
-  default     = "ami-048b05baffa30bd5f"
+  default     = "ami-0b72132eb3104947d"
   description = "Amazon Linux 2 AMI (HVM), SSD Volume Type"
 }
 variable "win2016" {
-  default     = "ami-08fa3923a0aa36b7a"
+  default     = "ami-0c5ad247344c140a8"
   description = "Microsoft Windows Server 2016 Base"
 }
 variable "ubuntu18" {
-  default     = "ami-0e958e6a9363c29ad"
+  default     = "ami-0c2ce6c550986b24d"
   description = "Ubuntu Server 18.04 LTS (HVM), SSD Volume Type"
 }
 

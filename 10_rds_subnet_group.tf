@@ -1,4 +1,4 @@
-/*
+
 #DB 서브넷 그룹
 resource "aws_db_subnet_group" "RDS_01" {
   name        = var.db_subnet_group_name
@@ -54,4 +54,3 @@ resource "aws_db_parameter_group" "utf8" {
     value = "utf8_general_ci"
   }
 }
-*/

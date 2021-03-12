@@ -6,7 +6,7 @@ IAM - 역할 - rds-monitoring-role 에서 Permissions policies 정책 연결 클
 
 역할을 콘솔로 부여하면, 테라폼으로 삭제 전에 콘솔 IAM으로 들어가서 만들어진 역할(rds-monitoring-role)을 직접 삭제해야됨.
 */
-/*
+
 # 인스턴스 이름 rds-*-*-db 형식
 # 변경 확인, 스토리지 타입 gp2 사용시 iops 주석 처리 및 파라미터 그룹 주석 확인
 resource "aws_db_instance" "DB" {
@@ -15,7 +15,7 @@ resource "aws_db_instance" "DB" {
   identifier     = var.db_identifier # DB 인스턴스 식별자 이름
 
   username              = "admin"       # 마스터 사용자 이름
-  password              = "starlabs!"   # 마스터 암호
+  password              = "password1!"   # 마스터 암호
   instance_class        = "db.t3.micro" # 인스턴스 타입
   storage_type          = "io1"         # 스토리지 타입, io1(IOPS) or gp2
   allocated_storage     = "100"         # 스토리지 크기
@@ -90,4 +90,3 @@ data "aws_iam_policy_document" "rds-monitoring-role" {
     }
   }
 }
-*/

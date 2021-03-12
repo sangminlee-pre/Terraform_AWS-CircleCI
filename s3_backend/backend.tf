@@ -1,15 +1,15 @@
 variable "region" {
-  default     = "ap-northeast-1"
+  default     = "ap-southeast-2"
   description = "버킷 생성 지역 입력"
 }
 # 대문자, 언더라인 안됨
 variable "s3_state" {
-  default     = "circleci-terraform-sangmin"
+  default     = "circleci-terraform-sangmin-southeast-2"
   description = "s3 state 이름 입력"
 }
 
 variable "s3_state_logs" {
-  default     = "circleci-terraform-sangmin-logs"
+  default     = "circleci-terraform-sangmin-southeast-2-logs"
   description = "s3 logs 버킷 이름 입력"
 }
 

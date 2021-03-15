@@ -23,12 +23,9 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          # name: terraform plan
-          # command: |
-          #   terraform plan -out tfapply
-          name: terraform create destroy plan
+          name: terraform plan
           command: |
-            terraform plan -destroy -out tfdestroy            
+            terraform plan -out tfapply
       - persist_to_workspace:
           root: .
           paths:
@@ -41,13 +38,9 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          # name: terraform apply
-          # command: |
-          #   terraform apply -auto-approve tfapply
-         name: terraform destroy
-         command: |
-           terraform apply -auto-approve tfdestroy
-              
+          name: terraform apply
+          command: |
+            terraform apply -auto-approve tfapply
       - persist_to_workspace:
           root: .
           paths:

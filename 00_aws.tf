@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "circleci-terraform-sangmin" # 백엔드 S3 이름 ./s3_backend/backend.tf 참고
+    bucket         = "circleci-terraform-sangmin-southeast-2" # 백엔드 S3 이름 ./s3_backend/backend.tf 참고
     key            = "path/terraform.tfstate"     # 키 저장소
     region         = "ap-southeast-2"             # S3 저장소 리전 ./s3_backend/backend.tf 참고
     encrypt        = true                         # 암호화

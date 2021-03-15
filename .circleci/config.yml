@@ -1,49 +1,49 @@
 version: 2
 
 jobs:
-  init:
-    working_directory: /tmp/project
-    docker:
-      - image: hashicorp/terraform:light
-    steps:
-      - checkout
-      - run:
-          name: terraform init
-          command: |
-            terraform init -input=false
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
+  # init:
+  #   working_directory: /tmp/project
+  #   docker:
+  #     - image: hashicorp/terraform:light
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: terraform init
+  #         command: |
+  #           terraform init -input=false
+  #     - persist_to_workspace:
+  #         root: .
+  #         paths:
+  #           - .
 
-  plan:
-    docker:
-      - image: hashicorp/terraform:light
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: terraform plan
-          command: |
-            terraform plan -out tfapply
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
+  # plan:
+  #   docker:
+  #     - image: hashicorp/terraform:light
+  #   steps:
+  #     - attach_workspace:
+  #         at: .
+  #     - run:
+  #         name: terraform plan
+  #         command: |
+  #           terraform plan -out tfapply
+  #     - persist_to_workspace:
+  #         root: .
+  #         paths:
+  #           - .
 
-  apply:
-    docker:
-      - image: hashicorp/terraform:light
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: terraform apply
-          command: |
-            terraform apply -auto-approve tfapply
-      - persist_to_workspace:
-          root: .
-          paths:
+  # apply:
+  #   docker:
+  #     - image: hashicorp/terraform:light
+  #   steps:
+  #     - attach_workspace:
+  #         at: .
+  #     - run:
+  #         name: terraform apply
+  #         command: |
+  #           terraform apply -auto-approve tfapply
+  #     - persist_to_workspace:
+  #         root: .
+  #         paths:
             - .
 
   #plan-destroy:
@@ -61,16 +61,16 @@ jobs:
   #        paths:
   #          - .
 
-  #destroy:
-  #  docker:
-  #    - image: hashicorp/terraform:light
-  #  steps:
-  #    - attach_workspace:
-  #        at: .
-  #    - run:
-  #        name: terraform destroy
-  #        command: |
-  #          terraform apply -auto-approve tfdestroy
+  destroy:
+   docker:
+     - image: hashicorp/terraform:light
+   steps:
+     - attach_workspace:
+         at: .
+     - run:
+         name: terraform destroy
+         command: |
+           terraform apply -auto-approve tfdestroy
   
 workflows:
   version: 2

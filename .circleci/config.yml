@@ -46,20 +46,20 @@ jobs:
   #         paths:
   #           - .
 
-  #plan-destroy:
-  #  docker:
-  #    - image: hashicorp/terraform:light
-  #  steps:
-  #    - attach_workspace:
-  #        at: .
-  #    - run:
-  #        name: terraform create destroy plan
-  #        command: |
-  #          terraform plan -destroy -out tfdestroy
-  #    - persist_to_workspace:
-  #        root: .
-  #        paths:
-  #          - .
+  plan-destroy:
+   docker:
+     - image: hashicorp/terraform:light
+   steps:
+     - attach_workspace:
+         at: .
+     - run:
+         name: terraform create destroy plan
+         command: |
+           terraform plan -destroy -out tfdestroy
+     - persist_to_workspace:
+         root: .
+         paths:
+           - .
 
   destroy:
    docker:

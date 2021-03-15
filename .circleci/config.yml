@@ -1,20 +1,20 @@
 version: 2
 
 jobs:
-  # init:
-  #   working_directory: /tmp/project
-  #   docker:
-  #     - image: hashicorp/terraform:light
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: terraform init
-  #         command: |
-  #           terraform init -input=false
-  #     - persist_to_workspace:
-  #         root: .
-  #         paths:
-  #           - .
+  init:
+    working_directory: /tmp/project
+    docker:
+      - image: hashicorp/terraform:light
+    steps:
+      - checkout
+      - run:
+          name: terraform init
+          command: |
+            terraform init -input=false
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 
   # plan:
   #   docker:
@@ -44,7 +44,7 @@ jobs:
   #     - persist_to_workspace:
   #         root: .
   #         paths:
-            - .
+  #           - .
 
   #plan-destroy:
   #  docker:
@@ -71,7 +71,7 @@ jobs:
          name: terraform destroy
          command: |
            terraform apply -auto-approve tfdestroy
-  
+     - .
 workflows:
   version: 2
   plan_approve_apply:
